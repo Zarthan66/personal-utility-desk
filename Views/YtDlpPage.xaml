@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="PrototypePT1.Views.YtDlpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:PrototypePT1.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Margin="36"
+          MaxWidth="700"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top">
+        <StackPanel Spacing="24">
+
+            <!-- 1. Header Group -->
+            <StackPanel Spacing="4">
+                <TextBlock Text="Video Downloader"
+                           FontSize="32"
+                           FontWeight="SemiBold" />
+                <TextBlock Text="A tool to download a videos."
+                           Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical"
+                        Spacing="12"
+                        VerticalAlignment="Center">
+
+                <!-- Status row (side-by-side) -->
+                <StackPanel Orientation="Horizontal"
+                            Spacing="8">
+                    <TextBlock Text="Status:"
+                               FontWeight="SemiBold"
+                               FontSize="15"/>
+                    <TextBlock x:Name="StatusTextBlock"
+                               FontSize="15"
+                               Text="Checking yt-dlp..." />
+                </StackPanel>
+
+                <!-- Install button on a new line underneath -->
+                <Button x:Name="InstallYtdlpButton"
+                        Content="Install yt-dlp"
+                        MinWidth="128"
+                        Visibility="Collapsed"
+                        Click="InstallYtdlpButton_Click" />
+
+                <Button x:Name="LearnWingetButton"
+                        Content="Learn more about WinGet"
+                        MinWidth="128"
+                        Visibility="Collapsed"
+                        Click="LearnWingetButton_Click" />
+
+            </StackPanel>
+
+            <!-- 2. Input Group -->
+            <StackPanel Spacing="16">
+                <StackPanel Orientation="Horizontal"
+                            Spacing="16">
+                    <TextBox x:Name="UrlTextBox"
+                             Header="Video URL"
+                             PlaceholderText="e.g. https://youtube.com/watch?v=..."
+                             Width="450" />
+                    <!-- Added NumberBox for yt-dlp threads -->
+                    <NumberBox x:Name="ThreadCountBox"
+                               Header="Threads"
+                               Value="4"
+                               Minimum="1"
+                               Maximum="16"
+                               SpinButtonPlacementMode="Inline"
+                               Width="156" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Spacing="16">
+                    <TextBox x:Name="DirTextBox"
+                             Header="Save Directory"
+                             Width="450" />
+                    <!-- Added NumberBox for yt-dlp threads -->
+                    <Button x:Name="BrowseSaveDirButton"
+                            Content="Browse"
+                            VerticalAlignment="Bottom"
+                            MinWidth="156"
+                            Click="BrowseSaveDirButton_Click" />
+                </StackPanel>
+                
+            </StackPanel>   
+            <Button x:Name="DownloadVideoButton"
+                    Content="Download"
+                    MinWidth="156"
+                    IsEnabled="False"
+                    Click="DownloadVideoButton_Click" />
+
+        </StackPanel>
+    </Grid>
+</Page>

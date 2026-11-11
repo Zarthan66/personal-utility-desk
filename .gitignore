@@ -1,0 +1,30 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio generated files
+*.pdb
+*.cache
+*.log
+
+# NuGet
+packages/
+*.nupkg
+
+# Test results
+TestResults/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local environment and secrets
+.env
+*.local.json
