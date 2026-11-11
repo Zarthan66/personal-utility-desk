@@ -27,15 +27,22 @@
                         VerticalAlignment="Center">
 
                 <!-- Status row (side-by-side) -->
-                <StackPanel Orientation="Horizontal"
-                            Spacing="8">
-                    <TextBlock Text="Status:"
+                <Grid ColumnSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Text="Status:"
                                FontWeight="SemiBold"
-                               FontSize="15"/>
+                               FontSize="15" />
                     <TextBlock x:Name="StatusTextBlock"
+                               Grid.Column="1"
                                FontSize="15"
+                               TextWrapping="Wrap"
                                Text="Checking yt-dlp..." />
-                </StackPanel>
+                </Grid>
 
                 <!-- Install button on a new line underneath -->
                 <Button x:Name="InstallYtdlpButton"
@@ -58,7 +65,7 @@
                             Spacing="16">
                     <TextBox x:Name="UrlTextBox"
                              Header="Video URL"
-                             PlaceholderText="e.g. https://youtube.com/watch?v=..."
+                             PlaceholderText="https://youtube.com/watch?v=..."
                              Width="450" />
                     <!-- Added NumberBox for yt-dlp threads -->
                     <NumberBox x:Name="ThreadCountBox"
@@ -82,11 +89,23 @@
                             MinWidth="156"
                             Click="BrowseSaveDirButton_Click" />
                 </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            Spacing="16">
+                    <TextBox x:Name="FilenameTextBox"
+                             Width="450"
+                             Header="Filename (Optional)"
+                             PlaceholderText="Example Title"/>
+                    <TextBox x:Name="ExtensionTextBox" 
+                            Width="156" 
+                             Header="Extension (Optional)" 
+                             PlaceholderText="mp4"/>
+                </StackPanel>
                 
             </StackPanel>   
             <Button x:Name="DownloadVideoButton"
                     Content="Download"
-                    MinWidth="156"
+                    MinWidth="200"
                     IsEnabled="False"
                     Click="DownloadVideoButton_Click" />
 
